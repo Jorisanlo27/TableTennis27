@@ -1,10 +1,10 @@
-<div class="header-top inverted">
+<div class="header-top">
     <h1>Get free shipping on orders over <span>€ 75</span></h1>
 </div>
 
 
 
-<div class="header-bottom sticky inverted">
+<div class="header-bottom sticky">
     <div class="margin-page">
         <div class="header">
             <div id="logo">
@@ -16,46 +16,21 @@
             <label for="chk" class="show-menu-btn">
                 <img src="./multimedia/icons/menu_48px.png" alt="">
             </label>
-        
+
             <ul class="menu1">
                 <label for="chk" class="hide-menu-btn">
                     <img src="./multimedia/icons/close_menu_100.png">
                 </label>
                 <a href="/home"><button class="btn btn-border-underline">Home</button></a>
-                <a href="/products">Products</a>
-                <a href="/about">About Us</a>
-                <a href="/contact">Contact Us</a>
+                <a href="/products"><button class="btn btn-border-underline">Products</button></a>
+                <a href="/about"><button class="btn btn-border-underline">About Us</button></a>
+                <a href="/contact"><button class="btn btn-border-underline">Contact Us</button></a>
             </ul>
-        
-            <div id="carrito">
+
+            <div id="carrito" onclick="alert('We are working on a new cart')">
                 <img class="menu-image" src="./multimedia/icons/shopping_cart_white_64px.png" alt="">
             </div>
         </div>
-
-        <!--  -->
-
-
-        <!-- <div class="menu">
-            <div id="logo">
-                <a href="/home">
-                    <img class="menu-image" src="./multimedia/imagenes/web_logo.png" alt="">
-                </a>
-            </div>
-
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/products">Products</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                </ul>
-            </nav>
-
-            <div id="carrito">
-                <img class="menu-image" src="./multimedia/icons/shopping_cart_white_64px.png" alt="">
-            </div>
-        </div> -->
-
     </div>
 
     <div class="progress-container">
@@ -64,38 +39,9 @@
 
 </div>
 
-<button onclick="goToTop()" id="myBtn" title="Ir arriba"><img src="./multimedia/icons/back_to_top.png" alt=""></button>
+<button onclick="goToTop()" id="myBtn" title="Ir arriba">
+    <div id="btn-top-btn" class="inverted"></div>
+</button>
 
-<script>
-    //Back To Top
-    //Get the button
-    var mybutton = document.getElementById("myBtn");
-
-    function progressBarPorcent() {
-        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        var scrolled = (winScroll / height) * 100;
-        document.getElementById("myBar").style.width = scrolled + "%";
-        document.getElementById("myBar").style.background = "#CA0000";
-    };
-
-
-    function scrollButtonAppear() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-
-    function goToTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-        scrollButtonAppear();
-        progressBarPorcent();
-    };
-</script>
+<!-- scroll up -->
+<script src="./scripts/scroll-y-progress.js"></script>

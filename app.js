@@ -35,4 +35,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/menu.html')
 })
 
+app.get('/prueba', (req, res) => {
+    res.render('pages/prueba')
+})
+
 app.listen(port, () => console.log('Server running!'));

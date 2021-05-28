@@ -199,4 +199,8 @@
         padding: 5px 20px;
         transition: 0.5s;
     }
+
+    .slide-data {
+        padding: 20% 25%;
+    }
 }
