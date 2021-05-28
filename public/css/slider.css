@@ -171,3 +171,32 @@
     background-color: #fff !important;
     border: 2px solid #000 !important;
 }
+
+@media screen and (max-width: 1300px) {
+    
+    #delay1 {
+        font-size: 35px;
+        transition: 0.5s;
+    }
+
+    #delay2 {
+        font-size: 18px;
+
+        padding: 10px 25px;
+        transition: 0.5s;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    
+    #delay1 {
+        font-size: 25px;
+        transition: 0.5s;
+    }
+
+    #delay2 {
+        font-size: 18px;
+        padding: 5px 20px;
+        transition: 0.5s;
+    }
+}
