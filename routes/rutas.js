@@ -3,6 +3,7 @@ const router = express.Router()
 const nodemailer = require('nodemailer')
 const clienteDB = require('../models/modelo')
 
+router.get('/', (req, res) => res.render('pages/index'));
 router.get('/home', (req, res) => res.render('pages/index'));
 router.get('/about', (req, res) => res.render('pages/about'));
 router.get('/products', (req, res) => res.render('pages/products'));
