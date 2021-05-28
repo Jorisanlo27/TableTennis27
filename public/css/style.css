@@ -4,8 +4,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-
-
 .dark-mode {
     background-color: #000;
     color: white;
@@ -23,6 +21,7 @@ html {
     opacity: 0;
     animation: slider-title1-load 800ms ease 2000ms;
     animation-fill-mode: forwards;
+    transition: 0.5s;
 }
 
 #delay2 {
@@ -30,6 +29,7 @@ html {
     opacity: 0;
     animation: slider-title2-load 800ms ease 4000ms;
     animation-fill-mode: forwards;
+    transition: 0.5s;
 }
 
 @keyframes slider-title1-load {

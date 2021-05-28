@@ -4,8 +4,27 @@
   font-family: 'Roboto', sans-serif;
 }
 
-body {
-  margin-bottom: 500px;
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+button {
+  margin: 1rem;
+}
+
+.btn {
+  background-color: var(--background-color);
+  color: #fff;
+  padding: .2em 1em;
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 900;
+
+  --border-size: 2px;
+  --accent-color: #0AF;
 }
 
 .header {
@@ -15,9 +34,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 30px -15px;
+  padding: 0 -15px;
   flex-wrap: wrap;
-  padding: 25px 0;
 }
 
 .menu-image {
@@ -60,7 +78,26 @@ body {
 } */
 
 .menu1 a:hover {
-  background-color: #fff;
+  color: teal;
+  transition: all 0.6s ease-in-out 0s;
+}
+
+.btn.btn-border-underline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--border-size);
+  background-color: var(--accent-color);
+  transition: transform 300ms ease-in-out;
+
+  transform: scaleX(0);
+}
+
+.btn.btn-border-underline:hover::before,
+.btn.btn-border-underline:focus::before {
+  transform: scaleX(1);
 }
 
 .menu1 a:hover,
@@ -75,7 +112,22 @@ body {
   z-index: -1111;
 }
 
+@media screen and (max-width: 400px) {
+  .header {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .show-menu-btn {
+    margin: 10px 0;
+  }
+}
+
 @media screen and (max-width: 1310px) {
+
+  .header {
+    padding: 10px 0;
+  }
 
   .show-menu-btn,
   .hide-menu-btn {
@@ -86,7 +138,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: rgba(51, 51, 51, 0.97);
+    background: rgba(51, 51, 51, 0.98);
     right: -100%;
     top: 0;
     text-align: center;
