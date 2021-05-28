@@ -1,0 +1,101 @@
+<div id="map"></div>
+
+<div class="contact-cards">
+  <div class="card-content">
+    <div class="card-column-logo">
+      <img src="./multimedia/icons/phone_32.png" alt="">
+    </div>
+    <div class="card-column">
+      <h1>PHONE </h1>
+      <h2>829-713-1975</h2>
+      <h2>809-534-0627</h2>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="card-column-logo">
+      <img src="./multimedia/icons/marker_32.png" alt="">
+    </div>
+    <div class="card-column">
+      <h1>PHONE </h1>
+      <h2>829-713-1975</h2>
+      <h2>809-534-0627</h2>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="card-column-logo">
+      <img src="./multimedia/icons/email_32.png" alt="">
+    </div>
+    <div class="card-column">
+      <h1>PHONE </h1>
+      <h2>829-713-1975</h2>
+      <h2>809-534-0627</h2>
+    </div>
+  </div>
+</div>
+
+<div class="form">
+  <div class="margin-page">
+    <form action="/contact"  method="post">
+      <label for="name-txt">Name</label>
+      <input type="text" name="name" id="name-txt" required>
+
+      <label for="email-txt">Email</label>
+      <input type="email" name="email" id="email-txt" required>
+
+      <label for="phone-txt">Phone</label>
+      <input type="text" name="phone" id="phone-txt" required>
+
+      <label for="message-txt">Message</label>
+      <textarea name="message" id="message-txt" cols="30" rows="10" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function initMap() {
+    var location = {
+      //parque del este
+      lat: 18.480860623916726,
+      lng: -69.85157997728244
+
+      // omega
+      // lat: 18.457670720146325,
+      // lng: -69.93961112534151
+
+      // auto dealer spa
+      // lat: 18.461047814782845,
+      // lng: -69.93387590801966
+    }
+
+    var map = new
+    google.maps.Map(document.getElementById('map'), {
+      zoom: 17,
+      center: location
+    });
+
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map,
+      title: "Autodealer",
+      mapTypeId: 'hybrid',
+      icon: {
+        url: "http://maps.google.com/mapfiles/ms/micons/red-pushpin.png",
+        scaledSize: new google.maps.Size(25, 25)
+      },
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'TABLE TENNIS 27'.fontsize('2').bold(true)
+    })
+    infowindow.open(map, marker);
+    marker.addListener('click', function () {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC-ttgVAuvOVPGbJ1lZWnDWki0jJPnBg4&callback=initMap&libraries=&v=weekly"
+  async></script>
