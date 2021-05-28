@@ -1,0 +1,105 @@
+*{
+    font-family: "Open Sans",sans-serif;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+}
+
+#contact-cards-content{
+    width: 80%;
+    margin: 100px auto;
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.contact-info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    height: fit-content;
+    /* margin-top: 260px; */
+    justify-content: space-evenly;
+    padding: 70px 0 130px;
+    margin: 0 auto;
+}
+
+.card{
+    position: relative;
+    flex: 1;
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    height: 140px;
+    background-color: #EBEBEB;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover {
+    background-color: #00408F;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1.2s;
+}
+
+.icon{
+    transition: .3s linear;
+}
+
+.card:hover .icon{
+    transform: scale(4);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.card-content h3,
+.card-content span{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    opacity: 0;
+}
+
+.card-content h3{
+    top: 20px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.card-content span{
+    bottom: 5px;
+    color: lightgray;
+    font-weight: 500;
+}
+
+.card:hover h3{
+    opacity: 1;
+    top: 46px;
+    transition: .3s linear .3s;
+}
+
+.card:hover span{
+    opacity: 1;
+    bottom: 46px;
+    transition: .3s linear .3s;
+}
+
+
+@media screen and (max-width:900px){
+    .card{
+        flex: 100%;
+        max-width: 500px;
+    }
+}

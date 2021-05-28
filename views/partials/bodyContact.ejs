@@ -1,9 +1,9 @@
 <div id="map"></div>
 
 <div class="contact-cards">
-  <div class="card-content">
+  <div class="card-content" onmouseover="changePhoneImage1()" onmouseout="changePhoneImageBack1()">
     <div class="card-column-logo">
-      <img src="./multimedia/icons/phone_32.png" alt="">
+      <img id="contact-card-1-img" src="./multimedia/icons/phone_32.png">
     </div>
     <div class="card-column">
       <h1>PHONE </h1>
@@ -11,9 +11,9 @@
       <h2>809-534-0627</h2>
     </div>
   </div>
-  <div class="card-content">
+  <div class="card-content" onmouseover="changeMarkerImage()" onmouseout="changeMarkerImageBack()">
     <div class="card-column-logo">
-      <img src="./multimedia/icons/marker_32.png" alt="">
+      <img id="contact-card-2-img" src="./multimedia/icons/marker_32.png" alt="">
     </div>
     <div class="card-column">
       <h1>PHONE </h1>
@@ -21,9 +21,9 @@
       <h2>809-534-0627</h2>
     </div>
   </div>
-  <div class="card-content">
+  <div class="card-content" onmouseover="changeMailImage()" onmouseout="changeMailImageBack()">
     <div class="card-column-logo">
-      <img src="./multimedia/icons/email_32.png" alt="">
+      <img id="contact-card-3-img" src="./multimedia/icons/email_32.png" alt="">
     </div>
     <div class="card-column">
       <h1>PHONE </h1>
@@ -33,25 +33,37 @@
   </div>
 </div>
 
-<div class="form">
-  <div class="margin-page">
-    <form action="/contact"  method="post">
-      <label for="name-txt">Name</label>
-      <input type="text" name="name" id="name-txt" required>
+<input type="text">
 
-      <label for="email-txt">Email</label>
-      <input type="email" name="email" id="email-txt" required>
 
-      <label for="phone-txt">Phone</label>
-      <input type="text" name="phone" id="phone-txt" required>
+<script>
+  function changePhoneImage1() {
+    document.getElementById('contact-card-1-img').src = "./multimedia/icons/phone_white_32.png", document
+      .getElementById('contact-card-1-img').style.transition = '0.6s';
+  }
 
-      <label for="message-txt">Message</label>
-      <textarea name="message" id="message-txt" cols="30" rows="10" required></textarea>
+  function changePhoneImageBack1() {
+    document.getElementById('contact-card-1-img').src = "./multimedia/icons/phone_32.png";
+  }
 
-      <button type="submit">Send</button>
-    </form>
-  </div>
-</div>
+  // 2
+  function changeMarkerImage() {
+    document.getElementById('contact-card-2-img').src = "./multimedia/icons/marker_white_32.png";
+  }
+
+  function changeMarkerImageBack() {
+    document.getElementById('contact-card-2-img').src = "./multimedia/icons/marker_32.png";
+  }
+
+  // 3
+  function changeMailImage() {
+    document.getElementById('contact-card-3-img').src = "./multimedia/icons/email_white_32.png";
+  }
+
+  function changeMailImageBack() {
+    document.getElementById('contact-card-3-img').src = "./multimedia/icons/email_32.png";
+  }
+</script>
 
 <script>
   function initMap() {

@@ -2,22 +2,26 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head', {rutaCss: "./css/style.css"}); %>
+    <%- include('../partials/head', {rutaCss: "./css/contact-cards.css"}); %>
 </head>
 
-<body style="background-color: #C0C0C0;">
+<body>
 
     <%- include('../partials/header'); %>
 
 
     <main>
-        <%- include('../partials/bodyContact'); %>
+        <!-- <%- include('../partials/bodyContact'); %> -->
+        <%- include('../partials/contact-cards'); %>
     </main>
 
     <footer>
         <%- include('../partials/footer'); %>
     </footer>
 
+    <script src="./scripts/format-phone/cleave.min.js"></script>
+    <script src="./scripts/format-phone/cleave-phone.i18n.js"></script>
+    <script src="./scripts/format-phone/script.js"></script>
 
 </body>
 
