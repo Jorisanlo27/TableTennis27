@@ -99,10 +99,14 @@ router.post('/upCliente', async (req, res) => {
     try {
         clienteDB.findOneAndUpdate({email: req.body.emailform}, {name: req.body.nameform}, (err, result) => {
             if (err) throw err
-            else {
-                res.send('Cliente actualizado correctamente <br> <div style="text-align: center;"><h2>Volver a el form</h2><form action="/clientes" method="get"><button class="btn btn-primary" type="submit">← Volver</button></form></div>')
-            }
         })
+
+        clienteDB.findOneAndUpdate({email: req.body.emailform}, {phone: req.body.phoneform}, (err, result) => {
+            if (err) throw err
+        })
+
+        res.send('Cliente actualizado correctamente <br> <div style="text-align: center;"><h2>Volver a el form</h2><form action="/clientes" method="get"><button class="btn btn-primary" type="submit">← Volver</button></form></div>')
+
     } catch (error) {
         console.log(error.message);
     }
