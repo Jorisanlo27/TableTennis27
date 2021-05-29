@@ -29,6 +29,11 @@
             background-color: lightgrey;
             border-radius: 10px;
         }
+
+        .dark-mode {
+            background-color: #161616;
+            color: white !important;
+        }
     </style>
     <!-- <script src="/scripts/update"></script> -->
     <script>
@@ -40,12 +45,35 @@
             document.getElementById('correoform').value = correo;
             document.getElementById('nombre').focus()
         }
+        document.onkeypress = function (e) {
+            e = e || window.event;
+
+            if (e.keyCode === 13) {
+                document.documentElement.classList.toggle('dark-mode')
+                document.body.classList.toggle('dark-mode')
+
+                if (document.body.classList !== 'dark-mode') {
+                    document.getElementById('mensage').innerHTML = "Press 'Enter'!!!"
+                    document.getElementById('mensage').style.color = "red"
+                    document.getElementById('mensage').style.backgroundColor = "black"
+                }
+
+                if (document.body.classList == 'dark-mode') {
+                    document.getElementById('mensage').innerHTML = "Tachulo, velda?"
+                    document.getElementById('mensage').style.color = "green"
+                    document.getElementById('mensage').style.backgroundColor = "white"
+
+                }
+                
+            }
+        }
     </script>
 </head>
 
 
 <body>
-    <h1 style="text-align: center; margin-top: 100px;">Tabla</h1>
+    <h1 style="color: red; background-color: black; width: fit-content;" id="mensage">Press 'Enter'!!!</h1>
+    <h1 style="text-align: center; margin-top: 50px;">Tabla</h1>
     <div id="content">
         <table class="table table-dark table-hover">
             <thead style="font-size: 24px;">
@@ -53,7 +81,7 @@
                     <th style="position: sticky; top: 0;" scope="col">Id</th>
                     <th style="position: sticky; top: 0;" scope="col">Nombre</th>
                     <th style="position: sticky; top: 0;" scope="col">Correo</th>
-                    <th style="position: sticky; top: 0;" scope="col">telefono</th>
+                    <th style="position: sticky; top: 0;" scope="col">Telefono</th>
                     <th style="position: sticky; top: 0;" scope="col">Fecha</th>
                     <th style="position: sticky; top: 0;" scope="col"></th>
                 </tr>
@@ -81,28 +109,21 @@
         <form method="POST" action="/upCliente">
             <input type="text" name="nameform" placeholder="name" id="nombreform" style="width: 250px;">
             <input type="text" name="phoneform" placeholder="phone" id="phoneform" style="width: 250px;">
-            <input type="text" name="emailform" placeholder="email" id="correoform" readonly="readonly" style="background-color: lightgray; color: lightcoral; width: 250px;">
+            <input type="text" name="emailform" placeholder="email" id="correoform" readonly="readonly"
+                style="background-color: lightgray; color: lightcoral; width: 250px;">
             <button type="submit" id="boton">Actualizar </button>
         </form>
     </div>
     <br><br>
     <div style="text-align: center;">
-        <h2>Volver a el form</h2>
+        <h2>Volver a la página</h2>
         <form action="/home" method="get">
             <button class="btn btn-primary" type="submit">← Volver</button>
         </form>
     </div>
 
     <script>
-        document.onkeypress = function (e) {
-            e = e || window.event;
-    
-            if (e.keyCode === 13) {
-                document.documentElement.classList.toggle('dark-mode')
-                document.getElementById('btn-top-btn').classList.toggle('inverted')
-                document.getElementById('btn-top-btn').classList.toggle('invert')
-            }
-        }
+
     </script>
 </body>
 
