@@ -1,69 +1,78 @@
 <div id="map"></div>
 
-<div class="contact-cards">
-  <div class="card-content" onmouseover="changePhoneImage1()" onmouseout="changePhoneImageBack1()">
-    <div class="card-column-logo">
-      <img id="contact-card-1-img" src="./multimedia/icons/phone_32.png">
+<div id="contact-cards-content">
+  <div class="contact-info">
+
+    <div class="card">
+      <img id="contact-card-1-img" class="icon" src="./multimedia/icons/phone_32.png">
+      <div class="card-content">
+        <h3>Phone Number</h3>
+        <span>(829)-713-1975</span>
+      </div>
     </div>
-    <div class="card-column">
-      <h1>PHONE </h1>
-      <h2>829-713-1975</h2>
-      <h2>809-534-0627</h2>
+
+    <div class="card">
+      <img id="contact-card-2-img" class="icon" src="./multimedia/icons/email_32.png" alt="">
+      <div class="card-content">
+        <h3>Email</h3>
+        <span>proyectofinaljorge@gmail.com</span>
+      </div>
     </div>
-  </div>
-  <div class="card-content" onmouseover="changeMarkerImage()" onmouseout="changeMarkerImageBack()">
-    <div class="card-column-logo">
-      <img id="contact-card-2-img" src="./multimedia/icons/marker_32.png" alt="">
+
+    <div class="card">
+      <img id="contact-card-3-img" class="icon" src="./multimedia/icons/marker_32.png" alt="">
+
+      <div class="card-content">
+        <h3>Location</h3>
+        <span>Santo Domingo Este</span>
+      </div>
     </div>
-    <div class="card-column">
-      <h1>PHONE </h1>
-      <h2>829-713-1975</h2>
-      <h2>809-534-0627</h2>
-    </div>
-  </div>
-  <div class="card-content" onmouseover="changeMailImage()" onmouseout="changeMailImageBack()">
-    <div class="card-column-logo">
-      <img id="contact-card-3-img" src="./multimedia/icons/email_32.png" alt="">
-    </div>
-    <div class="card-column">
-      <h1>PHONE </h1>
-      <h2>829-713-1975</h2>
-      <h2>809-534-0627</h2>
-    </div>
+
   </div>
 </div>
 
-<input type="text">
+<div id="margin-page-form">
 
+  <form action="/contact" method="post">
+    <h1 id="title-form">Leave us a message</h1>
+    <hr id="barrita-del-form">
+    <div id="formularion-mallon">
+      <div id="formulario-seccion-1">
+        <label for="name-txt">Name</label>
+        <br>
+        <input type="text" name="name" id="name-txt" required>
+        <br>
+        <label for="email-txt">Email</label>
+        <br>
+        <input type="email" name="email" id="email-txt" required>
+        <br>
+        <label for="phone-txt">Phone</label>
+        <br>
+        <input type="number" name="phone" id="phone-txt" class="phone-input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          required>
+        <br>
+      </div>
 
-<script>
-  function changePhoneImage1() {
-    document.getElementById('contact-card-1-img').src = "./multimedia/icons/phone_white_32.png", document
-      .getElementById('contact-card-1-img').style.transition = '0.6s';
-  }
+      <div id="formulario-seccion-2">
 
-  function changePhoneImageBack1() {
-    document.getElementById('contact-card-1-img').src = "./multimedia/icons/phone_32.png";
-  }
+        <label for="message-txt">Message</label>
+        <br>
+        <textarea name="message" id="message-txt" cols="30" rows="10" required></textarea>
 
-  // 2
-  function changeMarkerImage() {
-    document.getElementById('contact-card-2-img').src = "./multimedia/icons/marker_white_32.png";
-  }
+      </div>
 
-  function changeMarkerImageBack() {
-    document.getElementById('contact-card-2-img').src = "./multimedia/icons/marker_32.png";
-  }
+      <!-- <button type="submit">Send</button> -->
+  </form>
 
-  // 3
-  function changeMailImage() {
-    document.getElementById('contact-card-3-img').src = "./multimedia/icons/email_white_32.png";
-  }
+  
+</div>
 
-  function changeMailImageBack() {
-    document.getElementById('contact-card-3-img').src = "./multimedia/icons/email_32.png";
-  }
-</script>
+<div id="video-anuncio">
+    <video width="450px" height="auto" muted autoplay loop>
+      <source src="./multimedia/audio/anuncio.mp4" type="video/mp4">
+    </video>
+
+  </div>
 
 <script>
   function initMap() {

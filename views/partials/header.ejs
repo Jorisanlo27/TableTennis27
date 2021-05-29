@@ -1,5 +1,8 @@
 <div class="header-top">
     <h1>Get free shipping on orders over <span>€ 75</span></h1>
+    <audio controls autoplay style="position: absolute; right: 0;">
+        <source src="./multimedia/audio/himno.mp3" type="audio/mpeg">
+      </audio>
 </div>
 
 
@@ -21,10 +24,36 @@
                 <label for="chk" class="hide-menu-btn">
                     <img src="./multimedia/icons/close_menu_100.png">
                 </label>
-                <a href="/home"><button class="btn btn-border-underline">Home</button></a>
-                <a href="/products"><button class="btn btn-border-underline">Products</button></a>
-                <a href="/about"><button class="btn btn-border-underline">About Us</button></a>
-                <a href="/contact"><button class="btn btn-border-underline">Contact Us</button></a>
+                <li id="hover">
+                    <a href="/home">
+                        <button class="btn btn-border-underline">Home</button>
+                    </a>
+                </li>
+                <li id="hover">
+                    <a href="/products"><button class="btn btn-border-underline">Products</button></a>
+                    <ul>
+                        <li>
+                            <a href="/products#rubbers">
+                                <button class="btn btn-border-underline">Rubbers</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/products#blades">
+                                <button class="btn btn-border-underline">Blades</button>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="hover">
+                    <a href="/about" id="move-down">
+                        <button class="btn btn-border-underline">About Us</button>
+                    </a>
+                </li>
+                <li id="hover">
+                    <a href="/contact">
+                        <button class="btn btn-border-underline">Contact Us</button>
+                    </a>
+                </li>
             </ul>
 
             <div id="carrito" onclick="alert('We are working on a new cart')">

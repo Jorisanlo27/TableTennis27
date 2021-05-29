@@ -12,17 +12,6 @@ app.use(express.urlencoded({
     extended: false
 }));
 
-// database connection
-// mongoose.set('useCreateIndex', true);
-// mongoose.connect('mongodb+srv://admin:admin@cluster0.fly6v.mongodb.net/proyectoFinalJorgeDB?retryWrites=true&w=majority', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// })
-
-// const db = mongoose.connection
-// db.on('error', (err) => console.log(err))
-// db.once('open', () => console.log('Connected to Database'))
-
 // Rutas
 app.use(require('./routes/rutas'));
 const db = require('./config/db');

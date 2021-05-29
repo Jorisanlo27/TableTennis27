@@ -6,7 +6,7 @@
     /*===== Colores =====*/
     --first-color: #F2A20C;
     --white-color: #E9EAEC;
-    --dark-color: #272D40;
+    --dark-color: #707070;
     --dark-color-lighten: #F2F5FF;
     /*===== Fuente y tipografia =====*/
     --body-font: 'Poppins', sans-serif;
@@ -182,19 +182,20 @@ img {
     transform: translate(0, -10.5rem) rotate(-20deg);
 }
 
-.product-gomas div:hover .goma_card{
+.product-gomas div:hover .goma_card, .raqueta_card{
     /* transform: translate(0, -9.5rem); */
     margin-top: 100px;
+    box-shadow: 0 18px 40px -1px rgb(71, 71, 71);
 }
 
 .product-raquetas div:hover .goma {
     transform: translate(0, -9.5rem);
 }
 
-.product-raquetas div:hover .raqueta_card{
-    /* transform: translate(0, -9.5rem); */
+/* .product-raquetas div:hover .raqueta_card{
+    transform: translate(0, -9.5rem);
     margin-top: 100px;
-}
+} */
 
 .card:hover .card_data {
     transform: translateY(4.8rem);
@@ -246,7 +247,7 @@ img {
     min-height: fit-content;
     display: flex;
     align-items: center;
-    margin: 150px 0 50px;
+    margin: 120px 0 50px;
 }
 
 .titulo-seccion h1 {

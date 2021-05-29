@@ -7,6 +7,23 @@ router.get('/', (req, res) => res.render('pages/index'));
 router.get('/home', (req, res) => res.render('pages/index'));
 router.get('/about', (req, res) => res.render('pages/about'));
 router.get('/products', (req, res) => res.render('pages/products'));
+
+router.get('/clientes', (req, res) => {
+    try {
+        clienteDB.find({}, (err, results) => {
+            res.render('clientes', {
+                clientesList: results
+            })
+        })
+    } catch (err) {
+        res.send(json({
+            message: error.message
+        }))
+    }
+})
+
+
+
 router.get('/contact', (req, res) => res.render('pages/contact'));
 
 router.post('/contact', (req, res) => {
@@ -18,13 +35,17 @@ router.post('/contact', (req, res) => {
     } = req.body;
 
     contentHTML = `
-        <h1>Client Information</h1>
-        <ul>
-            <li>Username: ${name}</li>
-            <li>email: ${email}</li>
-            <li>phone: ${phone}</li>
+    <div style="width: 70%; margin: 0 auto;">
+        <h1 style="color: red;">CLIENT INFORMATION</h1>
+    
+        <h2>Thank you for contact us!</h2>
+        <ul style="list-style: none;">
+            <li><span style="font-weight: bold;">Username:</span> ${name}</li>
+            <li><span style="font-weight: bold;">email:</span> ${email}</li>
+            <li><span style="font-weight: bold;">phone:</span> ${phone}</li>
         </ul>
         <p>${message}</p>
+    </div>
     `
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -35,9 +56,9 @@ router.post('/contact', (req, res) => {
     })
 
     const mailOption = {
-        from: "'proyectofinaljorge@gmail.com'", // sender address
-        to: "jorgersantana27@gmail.com", // receiver
-        subject: "Contact form", // Subject
+        from: "proyectofinaljorge@gmail.com", // sender address
+        to: "proyectofinaljorge@gmail.com", // receiver
+        subject: `Hola, ${name}`, // Subject
         html: contentHTML // html body
     };
 
