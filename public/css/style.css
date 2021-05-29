@@ -779,6 +779,7 @@ hr {
 #formulario-seccion-1 {
     width: 300px;
     height: fit-content;
+    margin-right: 20px;
 }
 
 #formulario-seccion-1 label {
@@ -821,6 +822,18 @@ form {
     margin: 0 auto;
 }
 
+#boton-form {
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    font-size: 18px;
+    background-color: #00408F;
+    color: white;
+    border: none;
+    float: right;
+    margin-top: 10px;
+}
+
 #barrita-del-form {
     width: 170px; 
     margin: 0 0 60px 0 !important;
@@ -842,6 +855,8 @@ form {
     margin: 10px 0 20px;
     border: 2px solid grey;
     overflow-y: auto;
+    outline: none;
+    padding: 6px;
 }
 
 
