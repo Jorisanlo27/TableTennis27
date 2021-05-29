@@ -1,6 +1,14 @@
 # Mi Proyecto Final
 
-Rutas:
+
+## Breve descripcion
+
+¿Qué hace nuestra empresa?
+Vendemos equipamiento para tenis de mesa además como objetivo queremos unir o hacer llegar a más personas nuestros productos y también poder ordenar sin tener que visitar nuestra tienda física osea tambien via internet y poder mostrar los productos.
+
+
+
+# Rutas:
 
 | Rutas            | Resultado    |
 |-------------------|-------------|
