@@ -1,10 +1,8 @@
-# proyectoFinalJorge
+# Mi Proyecto Final
 
 Rutas:
-/ = 
-/ = pagina principal (Home)
 
-| Rutas            | Compañia    |
+| Rutas            | Resultado    |
 |-------------------|-------------|
 | '/'  pagina principal (Home) |
 | '/home' | pagina principal (Home) |
