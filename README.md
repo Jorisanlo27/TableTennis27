@@ -4,7 +4,7 @@ Rutas:
 
 | Rutas            | Resultado    |
 |-------------------|-------------|
-| '/'  pagina principal (Home) |
+| '/' | pagina principal (Home) |
 | '/home' | pagina principal (Home) |
 | '/products' | pagina de productos |
 | '/about' | pagina de about |
