@@ -16,6 +16,17 @@
     <footer>
         <%- include('../partials/footer'); %>
     </footer>
+    <script>
+        document.onkeypress = function (e) {
+            e = e || window.event;
+    
+            if (e.keyCode === 13) {
+                document.documentElement.classList.toggle('dark-mode')
+                document.getElementById('btn-top-btn').classList.toggle('inverted')
+                document.getElementById('btn-top-btn').classList.toggle('invert')
+            }
+        }
+    </script>
 </body>
 
 </html>

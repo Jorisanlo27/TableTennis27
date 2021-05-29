@@ -20,12 +20,4 @@ const db = require('./config/db');
 db.on('error', (err) => console.log(err))
 db.once('open', () => console.log('Connected to Database!'))
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/menu.html')
-})
-
-app.get('/prueba', (req, res) => {
-    res.render('pages/prueba')
-})
-
 app.listen(port, () => console.log('Server running!'));
