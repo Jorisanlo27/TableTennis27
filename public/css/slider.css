@@ -61,14 +61,19 @@
     background-image: url(../multimedia/imagenes/img5.jfif);
 }
 
+.alinear-center {
+    width: 30%;
+    margin: 0 auto;
+}
+
 .slide-data {
     position: absolute;
-    top: 15%;
+    top: 12%;
     transform: translateY(-50%);
     width: 100%;
-    text-align: left;
+    margin: 0 auto;
     color: #fff;
-    padding: 20% 15%;
+    text-align: center;
 }
 
 .slide-data h1 {
@@ -78,6 +83,7 @@
     font-size: 45px;
     text-align: left;
     margin-top: 200px;
+    text-align: center;
 }
 
 .slide-data p {
@@ -100,6 +106,7 @@
     text-align: left !important;
     margin-top: 200px;
     background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .slide-data button:hover {

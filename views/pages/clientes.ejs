@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table td,
+        table th,
+        #content {
+            border: 1px solid black;
+        }
+
+        #content {
+            width: 70%;
+            margin: 0 auto 100px;
+            height: 400px;
+            overflow-y: auto;
+            font-size: 18px;
+            background-color: lightgrey;
+            border-radius: 10px;
+        }
+    </style>
+    <!-- <script src="/scripts/update"></script> -->
+    <script>
+        function update(nombre, correo) {
+            // console.log(nombre);
+            // console.log(correo);
+            document.getElementById('nombre').value = nombre;
+            document.getElementById('correo').value = correo;
+            document.getElementById('nombre').focus()
+        }
+    </script>
+</head>
+
+
+<body>
+    <h1 style="text-align: center; margin-top: 100px;">Tabla</h1>
+    <div id="content">
+        <table class="table table-dark table-hover">
+            <thead style="font-size: 24px;">
+                <tr borde="" style="text-align: center;">
+                    <th style="position: sticky; top: 0;" scope="col">Id</th>
+                    <th style="position: sticky; top: 0;" scope="col">Nombre</th>
+                    <th style="position: sticky; top: 0;" scope="col">Correo</th>
+                    <th style="position: sticky; top: 0;" scope="col">telefono</th>
+                    <th style="position: sticky; top: 0;" scope="col">Fecha</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for(var i=0; i < clientesList.length; i++) { %>
+                <tr class="table-light" style="font-weight: bold;">
+                    <td><%= clientesList[i]._id %></td>
+                    <td><%= clientesList[i].name %></td>
+                    <td><%= clientesList[i].email %></td>
+                    <td><%= clientesList[i].phone %></td>
+                    <td><%= clientesList[i].date %></td>
+                    <td>
+                        <img src="/imgs/edit_48px.png"
+                            onclick="update('<%= clientesList[i].name %>', '<%= clientesList[i].email %>') ">
+                    </td>
+                </tr>
+                <%} %>
+            </tbody>
+        </table>
+
+    </div>
+    <div style="text-align: center;">
+        <form method="POST" action="/upCliente">
+            <input type="text" name="nameform" placeholder="nombre" id="nombre">
+            <input type="text" name="emailform" placeholder="correo" id="correo" readonly="readonly">
+            <button type="submit" id="boton">Actualizar </button>
+        </form>
+    </div>
+    <br><br>
+    <div style="text-align: center;">
+        <h2>Volver a el form</h2>
+        <form action="/clientes/add" method="get">
+            <button class="btn btn-primary" type="submit">← Volver</button>
+        </form>
+    </div>
+</body>
+
+</html>

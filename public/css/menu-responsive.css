@@ -19,7 +19,7 @@
   font-weight: 900;
 
   --border-size: 2px;
-  --accent-color: #0AF;
+  --accent-color: #F44336;
 }
 
 .header {
@@ -44,6 +44,7 @@
   float: right;
   line-height: 100px;
   margin: 0 auto;
+  list-style: none;
 }
 
 .menu1 a {
@@ -51,8 +52,51 @@
   text-transform: capitalize;
   text-decoration: none;
   padding: 0 30px;
+  display: block;
   transition: 0.4s;
 }
+
+.menu1 li a {
+  color: #fff;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+
+/* ============= */
+
+ul, ol {
+  list-style: none;
+}
+
+.menu1 > li {
+  float:left;
+}
+
+.menu1 li a {
+  background-color:#161616;
+  color:#fff;
+  text-decoration: none;
+  /* padding:10px 12px; */
+  display:block;
+}
+
+.menu1 li a:hover {
+  background-color:#434343;
+}
+
+.menu1 li ul {
+  display: none;
+  position: absolute;
+  min-width: 165.97px;
+  z-index: 1000;
+}
+
+.menu1 li:hover > ul {
+  display:block;
+}
+/* ============= */
 
 .show-menu-btn,
 .hide-menu-btn {
@@ -85,8 +129,8 @@
   transform: scaleX(0);
 }
 
-.btn.btn-border-underline:hover::before,
-.btn.btn-border-underline:focus::before {
+#hover:hover .btn.btn-border-underline::before,
+#hover:focus .btn.btn-border-underline::before {
   transform: scaleX(1);
 }
 
@@ -145,6 +189,15 @@
 
   .menu1 a:first-child {
     margin-top: 20px;
+  }
+
+  .menu1 li {
+    float: none;
+    height: fit-content;
+  }
+
+  .menu1 li ul {
+    display: none !important;
   }
 
   .hide-menu-btn {
