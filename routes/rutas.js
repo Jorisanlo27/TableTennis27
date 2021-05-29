@@ -1,3 +1,4 @@
+const config = require('../config/config')
 const express = require('express')
 const router = express.Router()
 const nodemailer = require('nodemailer')
@@ -36,29 +37,29 @@ router.post('/contact', (req, res) => {
     } = req.body;
 
     contentHTML = `
-    <div style="width: 70%; margin: 0 auto;">
-        <h1 style="color: red;">CLIENT INFORMATION</h1>
-    
+    <div style="width: 80%; height: fit-content; margin: 0 auto;">   
         <h2>Thank you for contact us!</h2>
         <ul style="list-style: none;">
             <li><span style="font-weight: bold;">Username:</span> ${name}</li>
             <li><span style="font-weight: bold;">email:</span> ${email}</li>
             <li><span style="font-weight: bold;">phone:</span> ${phone}</li>
         </ul>
-        <p>${message}</p>
+        <p style="font-weight: bold; width: 300px;">Message: ${message}</p>
+        <h3>Mail sent from jorge santana's final project page!</h3>
+        <a href="https://proyecto-final-jorge.herokuapp.com/">TableTennis27</a>
     </div>
     `
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'proyectofinaljorge@gmail.com',
-            pass: 'tabletennis27'
+            user: config.mail.user,
+            pass: config.mail.pass
         }
     })
 
     const mailOption = {
-        from: "proyectofinaljorge@gmail.com", // sender address
-        to: "proyectofinaljorge@gmail.com", // receiver
+        from: config.mail.user, // sender address
+        to: `${email}, ${config.mail.user}`, // receiver
         subject: `Hola, ${name}`, // Subject
         html: contentHTML // html body
     };
@@ -97,11 +98,19 @@ router.post('/contact', (req, res) => {
 // update one
 router.post('/upCliente', async (req, res) => {
     try {
-        clienteDB.findOneAndUpdate({email: req.body.emailform}, {name: req.body.nameform}, (err, result) => {
+        clienteDB.findOneAndUpdate({
+            email: req.body.emailform
+        }, {
+            name: req.body.nameform
+        }, (err, result) => {
             if (err) throw err
         })
 
-        clienteDB.findOneAndUpdate({email: req.body.emailform}, {phone: req.body.phoneform}, (err, result) => {
+        clienteDB.findOneAndUpdate({
+            email: req.body.emailform
+        }, {
+            phone: req.body.phoneform
+        }, (err, result) => {
             if (err) throw err
         })
 
@@ -138,7 +147,7 @@ async function getCliente(req, res, next) {
         cliente = await clienteDB.findById(req.params.id)
         if (cliente == null) {
             return res.status(404).json({
-                message: 'Estudiante no encontrado'
+                message: 'Cliente no encontrado'
             })
         }
     } catch (err) {
