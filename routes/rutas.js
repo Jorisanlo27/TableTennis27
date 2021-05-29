@@ -5,13 +5,16 @@ const clienteDB = require('../models/modelo')
 
 router.get('/', (req, res) => res.render('pages/index'));
 router.get('/home', (req, res) => res.render('pages/index'));
-router.get('/about', (req, res) => res.render('pages/about'));
 router.get('/products', (req, res) => res.render('pages/products'));
+router.get('/about', (req, res) => res.render('pages/about'));
+router.get('/contact', (req, res) => res.render('pages/contact'));
 
+
+// find *
 router.get('/clientes', (req, res) => {
     try {
         clienteDB.find({}, (err, results) => {
-            res.render('clientes', {
+            res.render('pages/clientes', {
                 clientesList: results
             })
         })
@@ -23,9 +26,7 @@ router.get('/clientes', (req, res) => {
 })
 
 
-
-router.get('/contact', (req, res) => res.render('pages/contact'));
-
+// insert one
 router.post('/contact', (req, res) => {
     const {
         name,
@@ -92,5 +93,58 @@ router.post('/contact', (req, res) => {
         throw err
     }
 })
+
+// update one
+router.post('/upCliente', async (req, res) => {
+    try {
+        clienteDB.findOneAndUpdate({email: req.body.emailform}, {name: req.body.nameform}, (err, result) => {
+            if (err) throw err
+            else {
+                res.send('Cliente actualizado correctamente <br> <div style="text-align: center;"><h2>Volver a el form</h2><form action="/clientes" method="get"><button class="btn btn-primary" type="submit">← Volver</button></form></div>')
+            }
+        })
+    } catch (error) {
+        console.log(error.message);
+    }
+})
+
+// delete one
+router.get('/delCliente/:id', getCliente, (req, res) => {
+    try {
+        var removeById = function (personId) {
+            clienteDB.findByIdAndDelete(personId, (err, deletedCliente) => {
+                if (err) throw err
+                else {
+                    deletedCliente.remove()
+                }
+            })
+        }
+        removeById(res.cliente.id)
+        res.send('Cliente Eliminado correctamente <br> <div style="text-align: center;"><h2>Volver a el form</h2><form action="/clientes" method="get"><button class="btn btn-primary" type="submit">← Volver</button></form></div>')
+    } catch (error) {
+        res.status(500).send(json({
+            message: error.message
+        }))
+    }
+})
+
+async function getCliente(req, res, next) {
+    let cliente
+    try {
+        cliente = await clienteDB.findById(req.params.id)
+        if (cliente == null) {
+            return res.status(404).json({
+                message: 'Estudiante no encontrado'
+            })
+        }
+    } catch (err) {
+        return res.status(500).json({
+            message: err.message
+        })
+    }
+
+    res.cliente = cliente
+    next()
+}
 
 module.exports = router

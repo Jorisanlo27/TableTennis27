@@ -18,6 +18,19 @@
         <%- include('../partials/footer'); %>
     </footer>
 
+    <script>
+        document.onkeypress = function (e) {
+            e = e || window.event;
+    
+            if (e.keyCode === 13) {
+                document.documentElement.classList.toggle('dark-mode')
+                document.getElementById('btn-top-btn').classList.toggle('inverted')
+                document.getElementById('btn-top-btn').classList.toggle('invert')
+                document.getElementsByTagName('label').classList.toggle('white')
+            }
+        }
+    </script>
+
     <script src="./scripts/format-phone/cleave.min.js"></script>
     <script src="./scripts/format-phone/cleave-phone.do.js"></script>
     <script src="./scripts/format-phone/script.js"></script>

@@ -6,7 +6,11 @@
 
 .dark-mode {
     background-color: #161616;
-    color: white;
+    color: white !important;
+}
+
+.white {
+    color: white !important;
 }
 
 html {
@@ -115,6 +119,7 @@ html {
     color: white;
     /* color: rgb(255, 132, 0); */
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
@@ -124,7 +129,7 @@ html {
     font-size: 22px;
     font-weight: bold;
     padding: 0 10px;
-    z-index: 222222222;
+    z-index: 1000;
 }
 
 .header-top h1 span {
@@ -750,7 +755,7 @@ hr {
 
 .card-content-about {
     width: 300px;
-    height: 360px;
+    height: fit-content;
     margin: 0 auto;
     text-align: center;
     border: 2px solid #707070;
@@ -830,8 +835,12 @@ form {
     background-color: #00408F;
     color: white;
     border: none;
-    float: right;
+    float: left;
     margin-top: 10px;
+}
+
+#boton-form {
+    cursor: pointer;
 }
 
 #barrita-del-form {
@@ -863,7 +872,13 @@ form {
 
 #video-anuncio {
     width: fit-content;
+    height: 200px;
     margin: 150px auto;
+}
+
+#video-anuncio video {
+    width: 100%;
+    height: 200px;
 }
 
 .card-about-text h1 {
@@ -885,6 +900,7 @@ footer {
 
 .footer-social {
     width: 400px;
+    min-width: 100px;
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
@@ -894,9 +910,9 @@ footer {
 
 .footer-social div {
     width: 50px;
-    min-width: 50px;
+    min-width: 10px;
     height: 50px;
-    min-height: 50px;
+    min-height: 10px;
     margin: 5px;
     background-color: white;
     border-radius: 50%;
@@ -925,6 +941,7 @@ footer {
     text-align: center;
     padding: 40px 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 0 auto;
 }
@@ -975,6 +992,10 @@ footer {
 
 @media screen and (max-width: 800px) {
 
+    #anuncio-promo {
+        display: none;
+    }
+
     .header-top h1,
     .header-top h1 span,
     #about-text p {
@@ -1004,5 +1025,17 @@ footer {
         width: 100%;
         height: 100%;
         filter: grayscale(0) brightness(1);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    form {
+        width: 200px;
+        height: fit-content;
+        margin: 0 auto;
+    }
+
+    form > *{
+        min-width: 100px;
     }
 }
